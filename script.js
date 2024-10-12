@@ -22,10 +22,22 @@ const dFSolidos = {
     2:[6,5]
 }
 
+//funcion para crear las secciondes 
+const crearContenido =(texto, contenido)=>{
+    const seccionForm = document.createElement('div')
+    seccionForm.classList.add("seccion_form")
+    const seccionTitulo = document.createElement('p')
+    seccionTitulo.textContent = texto
+    container.appendChild(seccionForm)
+    seccionForm.appendChild(seccionTitulo)
+    seccionForm.appendChild(contenido)   
+}
+
 //creo y agrego al dom el selector de figuras
-const selecFiguras = document.createElement("select")
-const container = document.querySelector(".container")
-container.appendChild(selecFiguras)
+const container = document.querySelector("#formFiguras")
+const selecFiguras = document.createElement("select") 
+crearContenido('Seleccione las figuras',selecFiguras)
+
 
 //funcion para mostrar la seleccion de figuras
 const mostrarFiguras = (figuras)=>{
@@ -50,7 +62,7 @@ tipo.addEventListener("input",()=>{
 
 //creo el formulario para insertar los datos
 const formDatos = document.createElement('div')
-container.appendChild(formDatos)
+
 
 //funcion para crear dinamicamente los inpus
 const crearInput = (datosFiguras, figura)=>{
@@ -75,8 +87,10 @@ const mostrarInputs = ()=>{
     formDatos.appendChild(containerInput)
 
     if(tipo.value == 1){
+        crearContenido('Hayar perimetro y area',formDatos)
         containerInput.innerHTML = crearInput(dFPlanas, figura)
     }else{
+        crearContenido('Hayar volumen solido',formDatos)
         containerInput.innerHTML = crearInput(dFSolidos, figura)
     }
 }
