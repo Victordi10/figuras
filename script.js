@@ -22,15 +22,27 @@ const dFSolidos = {
     2:[6,5]
 }
 
+//variable para evitar duplicado de los titulos
+let countTitle = 0
 //funcion para crear las secciondes 
 const crearContenido =(texto, contenido)=>{
-    const seccionForm = document.createElement('div')
-    seccionForm.classList.add("seccion_form")
-    const seccionTitulo = document.createElement('p')
-    seccionTitulo.textContent = texto
-    container.appendChild(seccionForm)
-    seccionForm.appendChild(seccionTitulo)
-    seccionForm.appendChild(contenido)   
+    countTitle++
+    console.log(countTitle)
+    if(countTitle < 3){
+        const seccionForm = document.createElement('div')
+        seccionForm.classList.add("seccion_form")
+
+        const seccionTitulo = document.createElement('p')
+        seccionTitulo.textContent = texto
+        seccionTitulo.classList.add(`formTitlt${countTitle}`)
+
+        seccionForm.appendChild(seccionTitulo)
+        seccionForm.appendChild(contenido) 
+        container.appendChild(seccionForm)
+    }else{
+        document.querySelector('.formTitlt2').textContent = texto
+    }
+    
 }
 
 //creo y agrego al dom el selector de figuras
@@ -55,8 +67,11 @@ const mostrarFiguras = (figuras)=>{
 tipo.addEventListener("input",()=>{
     if(tipo.value == 1){
         mostrarFiguras(fPlanas)
+        mostrarInputs()
+
     }else{
         mostrarFiguras(fSolidos)
+        mostrarInputs()
     }
 })
 
