@@ -2,29 +2,37 @@
 const tipo = document.getElementById('tipo')
 console.log(tipo.value)
 
-//figuras
-const fPlanas = ['cuadrado','rectangulo','circulo','triangulo']
-const fSolidos = ['cubo','esfera','cilindro']
+//almaceno las figuras para luego cargarlas
+const fPlanas = ['cuadrado', 'rectangulo', 'circulo', 'triangulo', 'trapecio', 'rombo', 'pentagono', 'hexagono'];
+const fSolidos = ['cubo', 'esfera', 'cilindro', 'pirámide', 'cono', 'prisma'];
 
-//datos necesarios
-const datosNecesarios = ['lado','largo','ancho','radio','base','altura','radioB'];
+//datos necesarios genéricamente para pedir en los inputs
+const datosNecesarios = ['lado', 'largo', 'ancho', 'radio', 'base', 'altura', 'radioB', 'alturaP', 'ladoB', 'ladoC'];
 
-//datos necesarios por figura
+//datos necesarios por figura, guardo como propiedad cada figura y el array para los datos necesarios
 const dFPlanas = {
-    0:[0],
-    1:[1,2],
-    2:[3],
-    3: [4,5]
-}
-const dFSolidos = {
-    0:[0],
-    1:[3],
-    2:[6,5]
-}
+    0: [0],           // cuadrado: lado
+    1: [1, 2],       // rectángulo: largo, ancho
+    2: [3],          // círculo: radio
+    3: [4, 5],       // triángulo: base, altura
+    4: [1, 4, 5],    // trapecio: largo, base, altura
+    5: [0, 4],       // rombo: lado, altura
+    6: [0, 1],       // pentágono: lado, altura
+    7: [0, 1]        // hexágono: lado, altura
+};
 
-//variable para evitar duplicado de los titulos
+const dFSolidos = {
+    0: [0],           // cubo: lado
+    1: [3],          // esfera: radio
+    2: [6, 5],       // cilindro: radio, altura
+    3: [4, 5],       // pirámide: base, altura
+    4: [3, 5],       // cono: radio, altura
+    5: [0, 1, 2]     // prisma: base, altura, lado (suponiendo que la base es un triángulo)
+};
+
+//variable para evitar duplicado de los titulos y contenido
 let countTitle = 0
-//funcion para crear las secciondes 
+//funcion para crear las secciones del form
 const crearContenido =(texto, contenido)=>{
     countTitle++
     console.log(countTitle)
@@ -63,7 +71,7 @@ const mostrarFiguras = (figuras)=>{
     })
 }
 
-//agrego evento para mostras las opciones
+//agrego evento para mostras las opciones al cambiar tipo
 tipo.addEventListener("input",()=>{
     if(tipo.value == 1){
         mostrarFiguras(fPlanas)
@@ -77,7 +85,7 @@ tipo.addEventListener("input",()=>{
     }
 })
 
-//creo el formulario para insertar los datos
+//creo el formulario para insertar los datos con inputs
 const formInputDatos = document.createElement('div')
 formInputDatos.classList.add('formInputDatos')
 
@@ -97,7 +105,7 @@ const crearInput = (datosFiguras, figura)=>{
     })
     return inputsHtml;
 }
-//muestro los input segun la figura
+//muestro los input segun la figura seleccionada
 const mostrarInputs = ()=>{
     //limpio el formulario
     formInputDatos.innerHTML = ''
@@ -112,7 +120,7 @@ const mostrarInputs = ()=>{
     }
 }
 
-//agrego evento para mostras los inpus
+//agrego evento para mostras los inputs segun la figura seleccionada
 selecFiguras.addEventListener("input",()=>{
     mostrarInputs()
     mostrarFormas()

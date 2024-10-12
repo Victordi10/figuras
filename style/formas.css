@@ -110,3 +110,144 @@
     border-radius: 50%; /* Círculo inferior */
     box-shadow: inset -15px -15px 30px rgba(0, 0, 0, 0.3), inset 15px 15px 30px rgba(255, 255, 255, 0.3);
 }
+
+/* Trapecio */
+.trapecio {
+    width: 150px;
+    height: 0;
+    border-left: 75px solid transparent;
+    border-right: 75px solid transparent;
+    border-bottom: 100px solid #f39c12; /* Naranja */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.trapecio:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Rombo */
+.rombo {
+    width: 100px;
+    height: 100px;
+    background-color: #3498db; /* Azul */
+    position: relative;
+    transform: rotate(45deg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.rombo:hover {
+    transform: rotate(45deg) translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Pentágono */
+.pentagono {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid #e74c3c; /* Rojo */
+    position: relative;
+}
+
+.pentagono::after {
+    content: '';
+    width: 100px;
+    height: 50px;
+    background-color: #e74c3c; /* Rojo */
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.pentagono:hover::after {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Hexágono */
+.hexagono {
+    width: 100px;
+    height: 57.74px; /* Altura calculada para mantener proporciones del hexágono */
+    background-color: #2ecc71; /* Verde */
+    position: relative;
+    margin: 28.87px 0; /* Margin vertical para centrar el hexágono */
+}
+
+.hexagono::before,
+.hexagono::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 28.87px solid #2ecc71; /* Verde */
+    position: absolute;
+    left: 0;
+}
+
+.hexagono::before {
+    bottom: 100%;
+}
+
+.hexagono::after {
+    top: 100%;
+    transform: rotate(180deg);
+}
+
+/* Pirámide */
+.piramide {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid #3498db; /* Azul */
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.piramide:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Cono */
+.cono {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid #e74c3c; /* Rojo */
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cono:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Prisma */
+.prisma {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid #2ecc71; /* Verde */
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.prisma:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
