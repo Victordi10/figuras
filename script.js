@@ -51,26 +51,33 @@ tipo.addEventListener("input",()=>{
 //creo el formulario para insertar los datos
 const formDatos = document.createElement('div')
 container.appendChild(formDatos)
+
+//funcion para crear dinamicamente los inpus
+const crearInput = (datosFiguras, figura)=>{
+    //obtengo el array por figura
+    let dArray = datosFiguras[figura];
+    let inputsHtml = ''
+    dArray.forEach(dato=>{
+        //creo y imprimos los inpust
+        inputsHtml += `
+            <label for='I${datosNecesarios[dato]}' class='labelDato'>${datosNecesarios[dato]}</label>
+            <input type="text" class='inputDato' id='I${datosNecesarios[dato]}'>
+        `;
+    })
+    return inputsHtml;
+}
 //muestro los input segun la figura
 const mostrarInputs = ()=>{
     //limpio el formulario
     formDatos.innerHTML = ''
     let figura = selecFiguras.value;
-    const div = document.createElement("div")
-    formDatos.appendChild(div)
+    const containerInput = document.createElement("div")
+    formDatos.appendChild(containerInput)
 
     if(tipo.value == 1){
-        //obtengo el array por figura
-        let dArray = dFPlanas[figura];
-        let inputsHtml = ''
-        dArray.forEach(dato=>{
-            //creo y imprimos los inpust
-            inputsHtml += `
-                <label for='I${datosNecesarios[dato]}' class='labelDato'>${datosNecesarios[dato]}</label>
-                <input type="text" class='inputDato' id='I${datosNecesarios[dato]}'>
-            `;
-        })
-        div.innerHTML = inputsHtml;
+        containerInput.innerHTML = crearInput(dFPlanas, figura)
+    }else{
+        containerInput.innerHTML = crearInput(dFSolidos, figura)
     }
 }
 
