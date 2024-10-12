@@ -1,121 +1,169 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-.container{* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background: linear-gradient(135deg, #4e54c8, #8f94fb);
+    background-color: #e0e0e0; /* Color de fondo claro */
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 h1 {
-    color: #fff;
+    color: #333; /* Color del texto del título */
     font-size: 2.5rem;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    grid-area: 'titulo';
+    grid-column: span 2;
+    align-items: center;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+    'titulo titulo'
+    'form forma'
+    'resultado forma';
+    justify-items: center;
     align-items: center;
-    justify-content: center;
+    gap: 10px;
     width: 100%;
-    max-width: 400px;
-    gap: 20px;
-    background: #ffffff11;
+    max-width: 500px;
     padding: 30px;
+    background: rgba(255, 255, 255, 0.95); /* Fondo del contenedor más claro */
     border-radius: 20px;
-    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
 }
-.containerFormFiguras{
+
+.containerFormFiguras {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 6px;
-
+    gap: 20px;
+    width: 100%;
+    grid-area: form;
 }
-.formFiguras{
+
+.formFiguras {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 20px;
 }
-.seccion_form{
+
+.seccion_form {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 10px;
     width: 100%;
+    text-align: center;
 }
 
 select {
     width: 100%;
-    padding: 10px 15px;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    font-size: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+select:hover {
+    box-shadow: 0 5px 15px rgba(77, 124, 255, 0.3);
+}
+
+select:focus {
+    outline: none;
+    border: 2px solid #4e54c8; /* Mantiene el color de enfoque */
+}
+
+.formInputDatos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.labelDato {
+    font-size: 1rem;
+    color: #333; /* Color del texto de las etiquetas */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.inputDato {
+    width: 100%;
+    padding: 12px;
     border: none;
     border-radius: 8px;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.9);
     color: #333;
     font-size: 1rem;
     box-shadow: 0 5px 13px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
 
-select:focus {
+.inputDato:focus {
     outline: none;
     box-shadow: 0 2px 10px rgba(77, 124, 255, 0.3);
+    border: 2px solid #4e54c8; /* Mantiene el color de enfoque */
 }
 
 .botonCalcular {
-    padding: 12px 25px;
-    background: linear-gradient(45deg, #ff5858, #f09819);
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #ff5858, #f09819); /* Color del botón */
     border: none;
     color: white;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     border-radius: 10px;
     cursor: pointer;
     box-shadow: 0px 8px 25px rgba(255, 88, 88, 0.5);
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .botonCalcular:hover {
-    background: linear-gradient(45deg, #ff7e5f, #feb47b);
+    background: linear-gradient(45deg, #ff7e5f, #feb47b); /* Color del botón al pasar el mouse */
+    transform: translateY(-2px);
+    box-shadow: 0px 10px 30px rgba(255, 88, 88, 0.7);
+}
+
+.botonCalcular:active {
+    transform: translateY(1px);
 }
 
 .resultado {
-    color: #fff;
+    color: #333; /* Color del texto del resultado */
     font-size: 1.2rem;
     text-align: center;
     margin-top: 20px;
+    grid-area: resultado;
 }
 
 option {
     text-transform: capitalize;
+    font-size: 1rem;
+    background-color: #ffffff;
 }
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    gap: 10px;
-}
-
-option{
-    text-transform: capitalize;
+/* estilos para las formas */
+.forma-container {
+    grid-area: forma;
 }

@@ -68,16 +68,18 @@ tipo.addEventListener("input",()=>{
     if(tipo.value == 1){
         mostrarFiguras(fPlanas)
         mostrarInputs()
+        mostrarFormas()
 
     }else{
         mostrarFiguras(fSolidos)
         mostrarInputs()
+        mostrarFormas()
     }
 })
 
 //creo el formulario para insertar los datos
-const formDatos = document.createElement('div')
-
+const formInputDatos = document.createElement('div')
+formInputDatos.classList.add('formInputDatos')
 
 //funcion para crear dinamicamente los inpus
 const crearInput = (datosFiguras, figura)=>{
@@ -87,8 +89,10 @@ const crearInput = (datosFiguras, figura)=>{
     dArray.forEach(dato=>{
         //creo y imprimos los inpust
         inputsHtml += `
-            <label for='I${datosNecesarios[dato]}' class='labelDato'>${datosNecesarios[dato]}</label>
-            <input type="text" class='inputDato' id='I${datosNecesarios[dato]}'>
+            <div>
+                <label for='I${datosNecesarios[dato]}' class='labelDato'>${datosNecesarios[dato]}</label>
+                <input type="text" class='inputDato' id='I${datosNecesarios[dato]}'>
+            </div>
         `;
     })
     return inputsHtml;
@@ -96,25 +100,41 @@ const crearInput = (datosFiguras, figura)=>{
 //muestro los input segun la figura
 const mostrarInputs = ()=>{
     //limpio el formulario
-    formDatos.innerHTML = ''
+    formInputDatos.innerHTML = ''
     let figura = selecFiguras.value;
-    const containerInput = document.createElement("div")
-    formDatos.appendChild(containerInput)
-
+    
     if(tipo.value == 1){
-        crearContenido('Hayar perimetro y area',formDatos)
-        containerInput.innerHTML = crearInput(dFPlanas, figura)
+        crearContenido('Hayar perimetro y area',formInputDatos)
+        formInputDatos.innerHTML = crearInput(dFPlanas, figura)
     }else{
-        crearContenido('Hayar volumen solido',formDatos)
-        containerInput.innerHTML = crearInput(dFSolidos, figura)
+        crearContenido('Hayar volumen solido',formInputDatos)
+        formInputDatos.innerHTML = crearInput(dFSolidos, figura)
     }
 }
 
 //agrego evento para mostras los inpus
 selecFiguras.addEventListener("input",()=>{
     mostrarInputs()
+    mostrarFormas()
 })
 window.addEventListener("DOMContentLoaded",()=>{
     mostrarFiguras(fPlanas)
     mostrarInputs()
+    mostrarFormas()
 })
+
+//mostrar forma atraves de clase de css 
+const mostrarFormas =()=>{
+    let figura = selecFiguras.value;
+    const forma = document.getElementById("forma")
+    forma.className = '';
+
+    
+    if(tipo.value == 1){
+        let fArray = fPlanas[figura]
+        forma.classList.add(fArray)
+    }else{
+        let fArray = fSolidos[figura]
+        forma.classList.add(fArray)
+    }
+}
