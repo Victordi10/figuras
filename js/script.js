@@ -101,7 +101,7 @@ const crearInput = (datosFiguras, figura)=>{
         inputsHtml += `
             <div>
                 <label for='I${datosNecesarios[dato]}' class='labelDato'>${datosNecesarios[dato]}</label>
-                <input type="text" class='inputDato' id='I${datosNecesarios[dato]}'>
+                <input type="number" class='inputDato' id='I${datosNecesarios[dato]}'>
             </div>
         `;
     })
