@@ -4,6 +4,7 @@ console.log(tipo.value)
 
 //almaceno las figuras para luego cargarlas
 const fPlanas = ['cuadrado', 'rectangulo', 'circulo', 'triangulo', 'trapecio', 'rombo', 'pentagono', 'hexagono'];
+
 const fSolidos = ['cubo', 'esfera', 'cilindro', 'pirámide', 'cono', 'prisma'];
 
 //datos necesarios genéricamente para pedir en los inputs
