@@ -55,7 +55,8 @@ const crearContenido =(texto, contenido)=>{
 
 //creo y agrego al dom el selector de figuras
 const container = document.querySelector("#formFiguras")
-const selecFiguras = document.createElement("select") 
+const selecFiguras = document.createElement("select")
+selecFiguras.id = 'selectFiguras' 
 crearContenido('Seleccione las figuras',selecFiguras)
 
 
@@ -86,7 +87,7 @@ tipo.addEventListener("input",()=>{
 })
 
 //creo el formulario para insertar los datos con inputs
-const formInputDatos = document.createElement('div')
+const formInputDatos = document.createElement('form')
 formInputDatos.classList.add('formInputDatos')
 
 //funcion para crear dinamicamente los inpus
