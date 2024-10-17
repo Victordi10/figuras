@@ -5,8 +5,15 @@
     font-family: 'Poppins', sans-serif;
 }
 
+:root{
+    --imagen-fondo:url('../img/plana.jpeg');
+}
+
 body {
-    background-color: #e0e0e0; /* Color de fondo claro */
+    background:var(--imagen-fondo) ;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -15,15 +22,17 @@ body {
 }
 
 h1 {
-    color: #333; /* Color del texto del título */
+    color: #222; /* Color del texto del título */
     font-size: 2.5rem;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
     grid-area: 'titulo';
     grid-column: span 2;
     align-items: center;
 }
-
+h2{
+    font-size: calc(8px + 1vw);
+}
 .container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -38,10 +47,9 @@ h1 {
     width: 100%;
     max-width: 500px;
     padding: 30px;
-    background: rgba(255, 255, 255, 0.95); /* Fondo del contenedor más claro */
     border-radius: 20px;
     box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(30px);
 }
 
 .containerFormFiguras {
@@ -67,7 +75,7 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
     width: 100%;
     text-align: center;
 }
@@ -102,11 +110,19 @@ select:focus {
     gap: 15px;
     width: 100%;
 }
+.formInputDatos div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}  
 
 .labelDato {
     font-size: 1rem;
-    color: #333; /* Color del texto de las etiquetas */
+    color: #111; /* Color del texto de las etiquetas */
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    text-transform: capitalize;
 }
 
 .inputDato {
@@ -143,6 +159,7 @@ select:focus {
     background: linear-gradient(45deg, #ff7e5f, #feb47b); /* Color del botón al pasar el mouse */
     transform: translateY(-2px);
     box-shadow: 0px 10px 30px rgba(255, 88, 88, 0.7);
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .botonCalcular:active {

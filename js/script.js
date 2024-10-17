@@ -41,7 +41,7 @@ const crearContenido =(texto, contenido)=>{
         const seccionForm = document.createElement('div')
         seccionForm.classList.add("seccion_form")
 
-        const seccionTitulo = document.createElement('p')
+        const seccionTitulo = document.createElement('h2')
         seccionTitulo.textContent = texto
         seccionTitulo.classList.add(`formTitlt${countTitle}`)
 
@@ -79,11 +79,13 @@ tipo.addEventListener("input",()=>{
         mostrarFiguras(fPlanas)
         mostrarInputs()
         mostrarFormas()
+        estilosPlanas()
 
     }else{
         mostrarFiguras(fSolidos)
         mostrarInputs()
         mostrarFormas()
+        estilosSolidos()
     }
 })
 
@@ -148,3 +150,17 @@ const mostrarFormas =()=>{
         forma.classList.add(fArray)
     }
 }
+
+//script para animaciones segun el tipo
+const estilosPlanas =()=>{
+    //cambio la imagen de fondo
+    document.documentElement.style.setProperty('--imagen-fondo', "url('../img/plana.jpeg')");
+
+}
+
+const estilosSolidos =()=>{
+    //cambio la imagen de fondo
+    document.documentElement.style.setProperty('--imagen-fondo', "url('../img/solido.jpeg')");
+
+}
+
