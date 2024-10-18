@@ -50,8 +50,6 @@ const prismaV = (base, altura, lado) => {
 
 // Obtén el select de las figuras
 const selectFiguras = document.getElementById("selectFiguras");
-// Botón para calcular
-const botonCalcular = document.getElementById("botonCalcular");
 
 // Función para obtener el valor de un input por su id
 const obtenerValorInput = (id) => {
@@ -59,6 +57,7 @@ const obtenerValorInput = (id) => {
     return input ? parseFloat(input.value) : 0; // Devuelve 0 si no existe el input
 };
 
+//trage el boton desde script.js
 // Función para calcular el área según la figura seleccionada
 botonCalcular.addEventListener("click", () => {
     const figuraSeleccionada = selectFiguras.value; // Obtén el valor del select

@@ -5,7 +5,7 @@ console.log(tipo.value)
 //almaceno las figuras para luego cargarlas
 const fPlanas = ['cuadrado', 'rectangulo', 'circulo', 'triangulo', 'trapecio', 'rombo', 'pentagono', 'hexagono'];
 
-const fSolidos = ['cubo', 'esfera', 'cilindro', 'pirámide', 'cono', 'prisma'];
+const fSolidos = ['cubo', 'esfera', 'cilindro', 'piramide', 'cono', 'prisma'];
 
 //datos necesarios genéricamente para pedir en los inputs
 const datosNecesarios = ['lado', 'largo', 'ancho', 'radio', 'base', 'altura', 'radioB', 'alturaP', 'ladoB', 'ladoC'];
@@ -36,7 +36,6 @@ let countTitle = 0
 //funcion para crear las secciones del form
 const crearContenido =(texto, contenido)=>{
     countTitle++
-    console.log(countTitle)
     if(countTitle < 3){
         const seccionForm = document.createElement('div')
         seccionForm.classList.add("seccion_form")
@@ -67,7 +66,6 @@ const mostrarFiguras = (figuras)=>{
     figuras.forEach((figura, index) =>{
         const opcion = document.createElement("option")
         opcion.value = index;
-        console.log(index)
         opcion.textContent = figura;
         selecFiguras.appendChild(opcion)
     })
@@ -135,32 +133,59 @@ window.addEventListener("DOMContentLoaded",()=>{
     mostrarFormas()
 })
 
-//mostrar forma atraves de clase de css 
-const mostrarFormas =()=>{
-    let figura = selecFiguras.value;
-    const forma = document.getElementById("forma")
-    forma.className = '';
+const mostrarFormas = () => {
+    let figura = selecFiguras.value; // Asumiendo que este es un select
+    const forma = document.getElementById("forma");
+    const img = document.createElement("img");
+    img.id = 'imgForma'; // Asigna un ID al nuevo img
 
-    
-    if(tipo.value == 1){
-        let fArray = fPlanas[figura]
-        forma.classList.add(fArray)
-    }else{
-        let fArray = fSolidos[figura]
-        forma.classList.add(fArray)
+    if (tipo.value == 1) { // Para figuras planas
+        // Si existe el img, reemplaza su nodo por el div forma
+        const imgForma = document.getElementById("imgForma");
+        if (imgForma) {
+            const forma = document.createElement("div");
+            forma.id = 'forma'
+            imgForma.parentNode.replaceChild(forma, imgForma); 
+
+            forma.className = ''; // Limpiar clases anteriores
+            let fArray = fPlanas[figura];
+            forma.classList.add(fArray);
+        }else{
+            forma.className = ''; // Limpiar clases anteriores
+            let fArray = fPlanas[figura];
+            forma.classList.add(fArray);
+        }
+
+    } else { // Para figuras sólidas
+        let fArray = fSolidos[figura];
+
+        if (forma) {
+            forma.parentNode.replaceChild(img, forma); // Reemplazar el elemento forma por img
+        } else {
+            console.error('El elemento forma no existe.'); // Para depuración
+        }
+        const imgForma = document.getElementById("imgForma");
+        imgForma.src = `../img/${fArray}.png`; // Asignar la fuente de la imagen
     }
 }
+
+
+//botonCalcular
+const botonCalcular = document.getElementById("botonCalcular")
+botonCalcular.classList.add("botonAzul")
 
 //script para animaciones segun el tipo
 const estilosPlanas =()=>{
     //cambio la imagen de fondo
     document.documentElement.style.setProperty('--imagen-fondo', "url('../img/plana.jpeg')");
-
+    botonCalcular.classList.remove("botonRojo")
+    botonCalcular.classList.add("botonAzul")
 }
 
 const estilosSolidos =()=>{
     //cambio la imagen de fondo
     document.documentElement.style.setProperty('--imagen-fondo', "url('../img/solido.jpeg')");
-
+    botonCalcular.classList.add("botonRojo")
+    botonCalcular.classList.remove("botonAzul")
 }
 

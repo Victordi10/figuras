@@ -145,26 +145,42 @@ select:focus {
 
 .botonCalcular {
     padding: 15px 30px;
-    background: linear-gradient(45deg, #ff5858, #f09819); /* Color del botón */
     border: none;
     color: white;
     font-size: 1.2rem;
     border-radius: 10px;
     cursor: pointer;
-    box-shadow: 0px 8px 25px rgba(255, 88, 88, 0.5);
     transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .botonCalcular:hover {
-    background: linear-gradient(45deg, #ff7e5f, #feb47b); /* Color del botón al pasar el mouse */
     transform: translateY(-2px);
-    box-shadow: 0px 10px 30px rgba(255, 88, 88, 0.7);
     transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .botonCalcular:active {
     transform: translateY(1px);
 }
+
+.botonRojo {
+    background: linear-gradient(45deg, #ff5858, #f09819); /* Color del botón rojo */
+}
+
+.botonRojo:hover {
+    background: linear-gradient(45deg, #ff7e5f, #feb47b); /* Color del botón rojo al pasar el mouse */
+    transform: translateY(-2px);
+    box-shadow: 0px 10px 30px rgba(255, 88, 88, 0.7);
+}
+.botonAzul {
+    background: linear-gradient(45deg, #4a90e2, #9013fe); /* Color del botón azul */
+}
+
+.botonAzul:hover {
+    background: linear-gradient(45deg, #6ab0f4, #a800ff); /* Color del botón azul al pasar el mouse */
+    transform: translateY(-2px);
+    box-shadow: 0px 10px 30px rgba(74, 144, 226, 0.7);
+}
+
 
 .resultado {
     color: #333; /* Color del texto del resultado */
