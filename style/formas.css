@@ -1,6 +1,6 @@
 .cuadrado {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     background-color: #3498db; /* Azul */
     border-radius: 10px; /* Bordes redondeados */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -13,8 +13,8 @@
 }
 
 .rectangulo {
-    width: 150px;
-    height: 100px;
+    width: 200px;
+    height: 150px;
     background-color: #e74c3c; /* Rojo */
     border-radius: 10px; /* Bordes redondeados */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -27,8 +27,8 @@
 }
 
 .circulo {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     background-color: #2ecc71; /* Verde */
     border-radius: 50%;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -43,9 +43,9 @@
 .triangulo {
     width: 0;
     height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-bottom: 100px solid #f39c12; /* Naranja */
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 150px solid #f39c12; /* Naranja */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -53,62 +53,6 @@
 .triangulo:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-}
-
-.cubo {
-    width: 100px;
-    height: 100px;
-    background-color: #3498db; /* Azul */
-    position: relative;
-    transform: rotateX(45deg) rotateY(45deg);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s;
-}
-
-.cubo:hover {
-    transform: rotateX(45deg) rotateY(45deg) translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-}
-
-.esfera {
-    width: 100px;
-    height: 100px;
-    background-color: #e74c3c; /* Rojo */
-    border-radius: 50%;
-    box-shadow: inset -15px -15px 30px rgba(0, 0, 0, 0.3), inset 15px 15px 30px rgba(255, 255, 255, 0.3);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.esfera:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-}
-
-.cilindro {
-    width: 100px;
-    height: 150px;
-    background-color: #2ecc71; /* Verde */
-    position: relative;
-    border-radius: 50% 50% 0 0; /* Parte superior redondeada */
-    box-shadow: inset -15px -15px 30px rgba(0, 0, 0, 0.3), inset 15px 15px 30px rgba(255, 255, 255, 0.3);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.cilindro:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-}
-
-.cilindro::before {
-    content: '';
-    width: 100px;
-    height: 20px;
-    background-color: #2ecc71; /* Verde */
-    position: absolute;
-    bottom: -20px;
-    left: 0;
-    border-radius: 50%; /* Círculo inferior */
-    box-shadow: inset -15px -15px 30px rgba(0, 0, 0, 0.3), inset 15px 15px 30px rgba(255, 255, 255, 0.3);
 }
 
 /* Trapecio */
@@ -129,8 +73,8 @@
 
 /* Rombo */
 .rombo {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     background-color: #3498db; /* Azul */
     position: relative;
     transform: rotate(45deg);
@@ -155,8 +99,8 @@
 
 .pentagono::after {
     content: '';
-    width: 100px;
-    height: 50px;
+    width: 150px;
+    height: 100px;
     background-color: #e74c3c; /* Rojo */
     position: absolute;
     bottom: 100%;
@@ -201,53 +145,11 @@
     transform: rotate(180deg);
 }
 
-/* Pirámide */
-.piramide {
-    width: 0;
-    height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-bottom: 100px solid #3498db; /* Azul */
-    position: relative;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
 
-.piramide:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-}
-
-/* Cono */
-.cono {
-    width: 0;
-    height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-bottom: 100px solid #e74c3c; /* Rojo */
-    position: relative;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.cono:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-}
-
-/* Prisma */
-.prisma {
-    width: 0;
-    height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-bottom: 100px solid #2ecc71; /* Verde */
-    position: relative;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.prisma:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+/* estilos para la img */
+#imgForma{
+    width: 100%;
+    max-width: 220px;
+    max-height: 220px;
+    object-fit: contain;
 }
